@@ -1,10 +1,12 @@
-// src/pages/Home.jsx
-import React from "react";
 import HeroSection from "../components/home/heroSection/HeroSection";
+import Banner from "../components/home/banner/Banner";
 
 const Home = () => (
     <main>
-        <HeroSection />
+        <div>
+            <HeroSection />
+        </div>
+        <Banner />
     </main>
 );
 

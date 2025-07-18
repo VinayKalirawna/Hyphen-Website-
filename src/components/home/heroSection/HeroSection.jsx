@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import VideoBackground from "../videoBackground/VideoBackground";
 import CurtainAnimation from "../curtainAnimation/CurtainAnimation";
 import TextReveal from "../textReveal/TextReveal";
+import Navbar from "../../common/navbar/Navbar";
 import "./HeroSection.css";
 
 const HeroSection = () => {
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
     const [isAnimationDone, setIsAnimationDone] = useState(false);
+
+    // lock body scroll until animation finishes
+    useEffect(() => {
+        if (!isAnimationDone) {
+            document.body.classList.add("no-scroll");
+        } else {
+            document.body.classList.remove("no-scroll");
+        }
+        return () => {
+            document.body.classList.remove("no-scroll");
+        };
+    }, [isAnimationDone]);
 
     const revealTexts = [
         "Experience Innovation",
@@ -16,11 +29,16 @@ const HeroSection = () => {
 
     return (
         <section className="hero-container">
+            <Navbar />
             <VideoBackground onVideoLoad={() => setIsVideoLoaded(true)} />
-            <CurtainAnimation
-                isVideoLoaded={isVideoLoaded}
-                onAnimationComplete={() => setIsAnimationDone(true)}
-            />
+
+            {!isAnimationDone && (
+                <CurtainAnimation
+                    isVideoLoaded={isVideoLoaded}
+                    onAnimationComplete={() => setIsAnimationDone(true)}
+                />
+            )}
+
             {isAnimationDone && (
                 <TextReveal texts={revealTexts} isActive={isAnimationDone} />
             )}

@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 // import Login from "./pages/Login";
@@ -6,12 +5,14 @@ import Home from "./pages/Home";
 
 function App() {
     return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/login" element={<Login />} />
+        <div className="App">
+            <Routes>
+                <Route path="/" element={<Home />} />
+                {/* <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} /> */}
-            {/* other protected/product/cart routes */}
-        </Routes>
+                {/* other protected/product/cart routes */}
+            </Routes>
+        </div>
     );
 }
 

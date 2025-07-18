@@ -8,7 +8,10 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
+
 .nav-container:hover {
     background-color: rgb(248, 245, 245);
 }
@@ -31,6 +34,7 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    flex-shrink: 0;
 }
 
 .nav-logo img {
@@ -49,6 +53,9 @@
     justify-content: start;
     gap: 3rem;
     padding: 1.8rem;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-shop-concern a {
@@ -56,6 +63,7 @@
     color: white;
     font-family: "Nurom W00 Regular";
     font-size: 0.8rem;
+    white-space: nowrap;
 }
 
 .nav-login-cart {
@@ -64,6 +72,7 @@
     padding: 1rem;
     gap: 0.5rem;
     margin-right: 2rem;
+    flex-shrink: 0;
 }
 
 .nav-login-cart div {
@@ -92,4 +101,255 @@
 
 .nav-container:hover .nav-login-cart a {
     color: rgba(0, 0, 0, 0.67);
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.nav-container:hover .mobile-menu-toggle span {
+    background-color: rgba(0, 0, 0, 0.67);
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .nav-logo {
+        width: 250px;
+        padding: 1.5rem;
+    }
+
+    .nav-shop-concern {
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .nav-login-cart {
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-container {
+        height: 80px;
+        padding: 0 0.5rem;
+    }
+
+    .nav-logo {
+        width: 200px;
+        padding: 1rem;
+    }
+
+    .nav-logo a img {
+        height: 35px;
+    }
+
+    .nav-shop-concern {
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .nav-shop-concern a {
+        font-size: 0.7rem;
+    }
+
+    .nav-login-cart div {
+        width: 80px;
+        height: 40px;
+    }
+
+    .nav-login-cart img {
+        height: 25px;
+        width: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        height: 70px;
+    }
+
+    .nav-logo {
+        width: 150px;
+        padding: 0.8rem;
+    }
+
+    .nav-logo a img {
+        height: 30px;
+    }
+
+    .nav-shop-concern {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-login-cart {
+        gap: 0.3rem;
+        margin-right: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .nav-login-cart div {
+        width: 70px;
+        height: 35px;
+        border-radius: 15px;
+    }
+
+    .nav-login-cart img {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-container {
+        height: 60px;
+        padding: 0 0.25rem;
+    }
+
+    .nav-logo {
+        width: 120px;
+        padding: 0.5rem;
+    }
+
+    .nav-logo a img {
+        height: 25px;
+    }
+
+    .nav-login-cart {
+        gap: 0.2rem;
+        margin-right: 0.25rem;
+    }
+
+    .nav-login-cart div {
+        width: 60px;
+        height: 30px;
+        border-radius: 12px;
+    }
+
+    .nav-login-cart img {
+        height: 18px;
+        width: 18px;
+    }
+
+    .mobile-menu-toggle span {
+        width: 20px;
+        height: 2px;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-container {
+        height: 55px;
+    }
+
+    .nav-logo {
+        width: 100px;
+        padding: 0.3rem;
+    }
+
+    .nav-logo a img {
+        height: 22px;
+    }
+
+    .nav-login-cart div {
+        width: 50px;
+        height: 28px;
+        border-radius: 10px;
+    }
+
+    .nav-login-cart img {
+        height: 16px;
+        width: 16px;
+    }
+}
+
+/* Mobile menu dropdown */
+.mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(248, 245, 245, 0.95);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    padding: 0.8rem 0;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.67);
+    font-family: "Nurom W00 Regular";
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .nav-container {
+        height: 50px;
+    }
+
+    .nav-logo {
+        padding: 0.2rem;
+    }
+
+    .nav-logo a img {
+        height: 20px;
+    }
+
+    .nav-login-cart {
+        padding: 0.3rem;
+    }
+
+    .nav-login-cart div {
+        width: 45px;
+        height: 25px;
+    }
+
+    .nav-login-cart img {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+/* Smooth transitions for hover effects */
+.nav-container,
+.nav-shop-concern a,
+.nav-login-cart a,
+.mobile-menu-toggle span {
+    transition: all 0.3s ease;
 }

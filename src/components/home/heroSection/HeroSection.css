@@ -58,6 +58,9 @@ body.no-scroll {
     transform: translate(-50%, -50%);
     z-index: 2;
     text-align: center;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .reveal-text {
@@ -66,6 +69,7 @@ body.no-scroll {
     color: white;
     margin: 0.5rem 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
 }
 
 .no-scroll {
@@ -73,4 +77,59 @@ body.no-scroll {
     position: fixed !important;
     width: 100% !important;
     height: 100% !important;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .reveal-text {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .reveal-text {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .reveal-text {
+        font-size: 2.5rem;
+    }
+
+    .text-reveal-container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .reveal-text {
+        font-size: 2rem;
+        margin: 0.3rem 0;
+    }
+
+    .text-reveal-container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .reveal-text {
+        font-size: 1.5rem;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .reveal-text {
+        font-size: 1.8rem;
+        margin: 0.2rem 0;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .reveal-text {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
 }

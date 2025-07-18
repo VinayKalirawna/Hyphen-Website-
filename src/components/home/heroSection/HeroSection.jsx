@@ -9,7 +9,6 @@ const HeroSection = () => {
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
     const [isAnimationDone, setIsAnimationDone] = useState(false);
 
-    // lock body scroll until animation finishes
     useEffect(() => {
         if (!isAnimationDone) {
             document.body.classList.add("no-scroll");

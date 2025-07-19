@@ -1,6 +1,6 @@
 .marquee-banner {
     width: 100%;
-    background: #7f8c96;
+    background: #5aa2da;
     overflow: hidden;
     position: relative;
     z-index: 2;
@@ -31,10 +31,11 @@
     justify-content: center;
     margin-right: 4rem;
     flex-shrink: 0;
+    filter: invert(1);
 }
 
 .marquee-logo {
-    min-height: 80px;
+    min-height: 100px;
     min-width: 120px;
     max-height: 80px;
     max-width: 120px;
